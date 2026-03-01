@@ -19,7 +19,7 @@ export const getAllNotesSchema = {
 };
 
 export const noteIdSchema = {
-  [Segments.QUERY]: Joi.object({
+  [Segments.PARAMS]: Joi.object({
     noteId: Joi.string().custom(objectIdValidator).required(),
   }),
 };
