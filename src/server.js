@@ -6,6 +6,7 @@ import { connectMongoDB } from './db/connectMongoDB.js';
 import { logger } from './middleware/logger.js';
 import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { errorHandler } from './middleware/errorHandler.js';
+import authRoutes from './routes/authRoutes.js';
 import notesRoutes from './routes/notesRoutes.js';
 
 const startServer = async () => {
@@ -15,6 +16,7 @@ const startServer = async () => {
   app.use(logger);
   app.use(express.json());
   app.use(cors());
+  app.use(authRoutes);
   app.use(notesRoutes);
   app.use(errors());
   app.use(notFoundHandler);
